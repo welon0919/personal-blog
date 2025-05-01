@@ -13,12 +13,12 @@
 }
 
 html.dark {
-  --background: #0a0a0a;
+  --background: hsl(221, 35%, 5%);
   --foreground: #ededed;
 }
 
 html.light {
-  --background: #ededed;
+  --background: hsl(0, 0%, 100%);
   --foreground: #0a0a0a;
 }
 

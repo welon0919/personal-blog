@@ -10,9 +10,9 @@ export default function Navbar() {
             Welon Blog
           </Link>
 
-          <NavbarItem href="about">about</NavbarItem>
+          <NavbarItem href="/about">about</NavbarItem>
 
-          <NavbarItem href="posts">posts</NavbarItem>
+          <NavbarItem href="/all-posts">posts</NavbarItem>
         </div>
         <div className="right-side flex space-x-4 items-center">
           <DarkModeSelector />
@@ -26,7 +26,13 @@ function NavbarItem({ children, href }: { children: ReactNode; href: string }) {
   return (
     <Link
       href={href}
-      className="text-gray-500 hover:text-black transition-colors duration-200 dark:text-gray-600 dark:hover:text-white"
+      className="
+        text-gray-500
+        transition-colors duration-200
+        dark:hover:text-gray-50
+        hover:text-black 
+        dark:text-gray-600
+      "
     >
       {children}
     </Link>
