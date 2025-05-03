@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { RecordModel } from "pocketbase";
 import Link from "next/link";
 import clsx from "clsx";
+import Post from "@/ui/components/Post";
 interface Props {
   params: { page: string };
 }
@@ -12,7 +13,7 @@ async function getPosts(
   page: number
 ): Promise<{ posts: RecordModel[]; total: number }> {
   const res = await pb.collection("posts").getList(page, perPage, {
-    sort: "-created",
+    sort: "-created_at",
   });
   return {
     posts: res.items,
@@ -40,7 +41,12 @@ export default async function Page({ params }: Props) {
     <main className="flex flex-col items-center ">
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
+          <Post
+            key={post.id}
+            post_id={post.id}
+            created_at={post.created_at}
+            title={post.title}
+          />
         ))}
       </ul>
       <div className="flex gap-1.5">
@@ -50,9 +56,9 @@ export default async function Page({ params }: Props) {
             <div
               key={idx}
               className={clsx(
-                "text-2xl border-white border rounded-sm aspect-square text-center hover:cursor-pointer transition duration-50",
-                idx === pageNum && "bg-slate-700",
-                idx !== pageNum && "hover:bg-slate-800 "
+                "text-2xl border-slate-500 dark:border-white border rounded-sm w-7 aspect-square text-center hover:cursor-pointer transition duration-200 ",
+                idx === pageNum && "dark:bg-slate-700 bg-slate-400 ",
+                idx !== pageNum && "dark:hover:bg-slate-800 hover:bg-slate-200"
               )}
             >
               <Link href={`/all-posts/${idx}`}>{idx}</Link>
@@ -60,7 +66,7 @@ export default async function Page({ params }: Props) {
           );
         })}
         {pageNum < totalPages && (
-          <div className="">
+          <div className="flex items-center">
             <Link href={`/all-posts/${pageNum + 1}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
