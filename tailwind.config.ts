@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography"
 const config: Config = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}", // 如果你是用 app/ 資料夾
@@ -7,7 +8,7 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [typography],
   darkMode: "class",
   
 };

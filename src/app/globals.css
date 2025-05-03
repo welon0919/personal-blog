@@ -27,3 +27,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.prose ol{
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+.prose ul{
+  list-style-type:disc;
+  list-style-position: inside;
+}
+table{
+  @apply border border-gray-600 table-auto
+}
+th, td{
+  @apply border border-gray-600 px-2 py-1
+}
