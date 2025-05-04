@@ -35,9 +35,15 @@ body {
   list-style-type:disc;
   list-style-position: inside;
 }
-table{
+.prose table{
   @apply border border-gray-600 table-auto
 }
-th, td{
+.prose th, td{
   @apply border border-gray-600 px-2 py-1
+}
+.prose a{
+  text-decoration: underline;
+}
+hr{
+  width: 100%;
 }
