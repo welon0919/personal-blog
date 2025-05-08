@@ -11,13 +11,23 @@ interface Post {
   content: string;
   created_at: string;
 }
+interface Props {
+  params: Promise<{
+    post_id: string;
+  }>;
+}
 async function getPostData(post_id: string): Promise<Post | null> {
   try {
     const post = await pb.collection("posts").getOne<Post>(post_id);
     return post;
-  } catch (error: any) {
-    if (error.status == 404) return null;
-    throw error;
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      if (error.status == 404) return null;
+      throw error;
+    } else {
+      console.error("Unkown error", error);
+      return null;
+    }
   }
 }
 function formatDate(dateString: string): string {
@@ -37,11 +47,7 @@ function isDomElement(node: DOMNode): node is DomElement {
   return node.type === "tag";
 }
 
-export default async function page({
-  params,
-}: {
-  params: { post_id: string };
-}) {
+export default async function page({ params }: Props) {
   const { post_id } = await params;
 
   const post = await getPostData(post_id);
@@ -88,7 +94,7 @@ const ContentDisplay = ({ html }: { html: string }) => {
             isDomElement(domNode) &&
             domNode.name === "pre" &&
             domNode.children &&
-            // @ts-ignore
+            // @ts-expect-error It works, don't touch it
             isDomElement(domNode.children[0]) &&
             domNode.children[0].name === "code"
           ) {

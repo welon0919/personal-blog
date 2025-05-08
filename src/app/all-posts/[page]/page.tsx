@@ -1,12 +1,11 @@
 import pb from "@/lib/pocketbase";
 import { notFound } from "next/navigation";
 import { RecordModel } from "pocketbase";
-import Link from "next/link";
-import clsx from "clsx";
+
 import Post from "@/ui/components/Post";
-import {NextPageBtn, PageBtn, PrevPageBtn} from "@/ui/components/PageButtons";
+import { NextPageBtn, PageBtn, PrevPageBtn } from "@/ui/components/PageButtons";
 interface Props {
-  params: { page: string };
+  params: Promise<{ page: string }>;
 }
 
 const perPage = 10;
@@ -56,18 +55,12 @@ export default async function Page({ params }: Props) {
         ))}
       </ul>
       <div className="flex gap-1.5">
-        {pageNum > 1  && (
-          <PrevPageBtn pageNum={pageNum}/>
-        )}
+        {pageNum > 1 && <PrevPageBtn pageNum={pageNum} />}
         {Array.from({ length: totalPages }, (_, i) => {
           const idx = i + 1;
-          return (
-            <PageBtn idx={idx} pageNum={pageNum} key={idx}/>
-          );
+          return <PageBtn idx={idx} pageNum={pageNum} key={idx} />;
         })}
-        {pageNum < totalPages && (
-          <NextPageBtn pageNum={pageNum}/>
-        )}
+        {pageNum < totalPages && <NextPageBtn pageNum={pageNum} />}
       </div>
     </main>
   );

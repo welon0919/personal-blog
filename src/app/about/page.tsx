@@ -1,5 +1,4 @@
 import ProfilePic from "@/ui/components/ProfilePic";
-import Image from "next/image";
 
 export default function Page() {
     return (
@@ -9,8 +8,8 @@ export default function Page() {
             <div className="flex items-center w-full ">
                 <ProfilePic />
                 <div className="text-2xl flex-2/3">
-                    Hi, I'm welon and I'm from Taichung, Taiwan, and also a
-                    student studying at mingdao high school I'm interested in
+                    Hi, I&apos;m welon and I&apos;m from Taichung, Taiwan, and also a
+                    student studying at mingdao high school I&apos;m interested in
                     programming and solving math problems, and I hope to use my
                     coding skills to make life  easier
                 </div>
