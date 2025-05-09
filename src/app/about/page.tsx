@@ -2,7 +2,7 @@ import ProfilePic from "@/ui/components/ProfilePic";
 
 export default function Page() {
     return (
-        <main className="flex flex-col items-center w-1/2 justify-self-center">
+        <main className="flex flex-col items-center w-1/2 self-center">
             <h1 className="text-5xl font-bold my-3 self-start">About me</h1>
             <hr />
             <div className="flex items-center w-full ">

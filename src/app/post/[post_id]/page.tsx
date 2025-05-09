@@ -55,7 +55,7 @@ export default async function page({ params }: Props) {
     notFound();
   }
   return (
-    <main className="p-2 flex flex-col w-1/2 justify-self-center">
+    <main className="p-2 flex flex-col w-1/2 self-center">
       <h1 className="text-4xl font-bold my-5 mx-1">{post.title}</h1>
       <DateDisplay dateStr={post.created_at} />
       <hr />
