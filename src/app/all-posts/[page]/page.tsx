@@ -21,14 +21,7 @@ async function getPosts(
   };
 }
 
-export async function generateStaticParams() {
-  const { total } = await getPosts(1);
-  const totalPages = Math.ceil(total / perPage);
 
-  return Array.from({ length: totalPages }, (_, i) => ({
-    page: String(i + 1),
-  }));
-}
 
 export default async function Page({ params }: Props) {
   const { page } = await params;
