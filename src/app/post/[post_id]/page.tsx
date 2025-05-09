@@ -21,7 +21,7 @@ async function getPostData(post_id: string): Promise<Post | null> {
     const post = await pb.collection("posts").getOne<Post>(post_id);
     return post;
   } catch (error: unknown) {
-    if (error instanceof Error) {
+    if (error instanceof Error && error instanceof Response) {
       if (error.status == 404) return null;
       throw error;
     } else {

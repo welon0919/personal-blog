@@ -35,7 +35,7 @@ export default async function Page({ params }: Props) {
   if (pageNum > totalPages) notFound();
   return (
     <main className="flex flex-col items-center w-1/3 self-center">
-      <h1 className="text-5xl font-bold my-5">All Blog Posts</h1>
+      <h1 className="text-5xl font-bold my-5">Blog Posts</h1>
       <hr />
       <ul>
         {posts.map((post) => (

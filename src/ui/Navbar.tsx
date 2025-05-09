@@ -16,11 +16,15 @@ export default function Navbar() {
                     <NavbarItem href="/all-posts">posts</NavbarItem>
                 </div>
                 <div className="right-side flex space-x-4 items-center">
-                    <button 
-                        className="dark:text-white text-black dark:hover:bg-slate-700 hover:bg-slate-400 p-2  transition duration-100 cursor-pointer flex items-center"
-                    >
-                        <GrFlagFill size={20} />
-                    </button>
+                    <Link href="https://github.com/welon0919/personal-blog/issues/new" target="_blank">
+                        <button
+                            className="dark:text-white text-black dark:hover:bg-slate-700 hover:bg-slate-400 p-2  transition duration-100 cursor-pointer flex items-center"
+                            title="report an issue"
+                        >
+                            <GrFlagFill size={20} />
+                        </button>
+                    </Link>
+
                     <DarkModeSelector />
                 </div>
             </nav>
