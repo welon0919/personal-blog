@@ -1,10 +1,9 @@
 import Link from "next/link";
 import RecentPosts from "@/ui/RecentPosts";
-import { FaGithub } from "react-icons/fa6";
 export default function Home() {
     return (
         <main className="flex  flex-col text-center mt-20 items-center">
-            <h1 className="text-7xl font-bold mb-10">Hello I'm Welon</h1>
+            <h1 className="text-7xl font-bold mb-10">Hello I&apos;m Welon</h1>
             <p className="opacity-70 text-2xl">Welcome to my blog</p>
             <div className="mt-7">
                 <h1 className="text-4xl">Recent Posts</h1>
